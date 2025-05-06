@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formData.append("facultyName", user.name);
 
       try {
-        const res = await fetch("http://localhost:5000/api/upload-course", {
+        const res = await fetch("https://mu-intraner-portal.onrender.com/api/upload-course", {
           method: "POST",
           headers: {
             Authorization: "Bearer " + token
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formData.append("facultyName", user.name);
 
       try {
-        const res = await fetch("http://localhost:5000/api/upload-course", {
+        const res = await fetch("https://mu-intraner-portal.onrender.com/api/upload-course", {
           method: "POST",
           headers: {
             Authorization: "Bearer " + token

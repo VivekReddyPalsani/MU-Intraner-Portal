@@ -170,7 +170,7 @@
      }
 
 
-    const socket = io('http://localhost:5000'); // Adjust if needed
+    const socket = io('https://mu-intraner-portal.onrender.com'); // Adjust if needed
     let currentUser = null;
     let currentReceiverId = null; // ID of the currently selected contact
 
@@ -260,7 +260,7 @@
          contactList.innerHTML = '<div class="text-center text-muted mt-3">Loading contacts...</div>';
 
         try {
-            const res = await fetch("http://localhost:5000/api/chat/contacts", { // Use relative path if backend is on same domain, or full URL
+            const res = await fetch("https://mu-intraner-portal.onrender.com/api/chat/contacts", { // Use relative path if backend is on same domain, or full URL
                 headers: {
                     Authorization: `Bearer ${token}` // Use passed token
                 }

@@ -216,7 +216,7 @@
       
           // Load student roll numbers
           try {
-            const res = await fetch(`http://localhost:5000/api/students?branch=${branch}&year=${year}`, {
+            const res = await fetch(`https://mu-intraner-portal.onrender.com/api/students?branch=${branch}&year=${year}`, {
               headers: {
                 Authorization: "Bearer " + token
               }
@@ -297,7 +297,7 @@
             };
       
             try {
-              const res = await fetch("http://localhost:5000/api/attendance/submit", {
+              const res = await fetch("https://mu-intraner-portal.onrender.com/api/attendance/submit", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

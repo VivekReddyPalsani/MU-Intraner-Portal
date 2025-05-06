@@ -247,7 +247,7 @@
 
             async function loadFaculty() {
             try {
-                const res = await fetch("http://localhost:5000/api/users/faculty", {
+                const res = await fetch("https://mu-intraner-portal.onrender.com/api/users/faculty", {
                 headers: {
                     Authorization: "Bearer " + token
                 }
@@ -277,7 +277,7 @@
           // Load past slot bookings for the student
           async function loadBookings() {
             try {
-              const res = await fetch("http://localhost:5000/api/meetings/student", {
+              const res = await fetch("https://mu-intraner-portal.onrender.com/api/meetings/student", {
                 headers: { Authorization: "Bearer " + token }
               });
         
@@ -318,7 +318,7 @@
             const message = document.getElementById("message").value;
         
             try {
-              const res = await fetch(`http://localhost:5000/api/user-by-name/${encodeURIComponent(facultyName)}`, {
+              const res = await fetch(`https://mu-intraner-portal.onrender.com/api/user-by-name/${encodeURIComponent(facultyName)}`, {
                 headers: { Authorization: "Bearer " + token }
               });
               const faculty = await res.json();
@@ -327,7 +327,7 @@
                 return alert("Faculty not found or invalid.");
               }
         
-              const bookingRes = await fetch("http://localhost:5000/api/meetings/book", {
+              const bookingRes = await fetch("https://mu-intraner-portal.onrender.com/api/meetings/book", {
                 method: "POST",
                 headers: {
                   Authorization: "Bearer " + token,

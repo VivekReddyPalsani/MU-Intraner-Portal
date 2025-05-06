@@ -34,7 +34,7 @@
 
     async function fetchMaterials() {
       try {
-        const res = await fetch(`http://localhost:5000/api/materials/${subjectCode}`, {
+        const res = await fetch(`https://mu-intraner-portal.onrender.com/api/materials/${subjectCode}`, {
           headers: { Authorization: "Bearer " + token }
         });
         const files = await res.json();

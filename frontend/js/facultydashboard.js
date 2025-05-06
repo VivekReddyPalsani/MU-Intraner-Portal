@@ -37,7 +37,7 @@
     if (!tbody) return;
 
     try {
-      const res = await fetch("http://localhost:5000/api/faculty/schedule/today", {
+      const res = await fetch("https://mu-intraner-portal.onrender.com/api/faculty/schedule/today", {
         headers: {
           Authorization: "Bearer " + token
         }
@@ -75,7 +75,7 @@
   // 📝 Fetch and render tasks
 async function fetchTasks() {
   try {
-    const res = await fetch("http://localhost:5000/api/tasks", {
+    const res = await fetch("https://mu-intraner-portal.onrender.com/api/tasks", {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -118,7 +118,7 @@ async function addTask() {
   if (!text) return;
 
   try {
-    await fetch("http://localhost:5000/api/tasks", {
+    await fetch("https://mu-intraner-portal.onrender.com/api/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -137,7 +137,7 @@ async function addTask() {
 // ✅ Toggle task completion
 async function toggleComplete(taskId) {
   try {
-    await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+    await fetch(`https://mu-intraner-portal.onrender.com/api/tasks/${taskId}`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`
@@ -153,7 +153,7 @@ async function toggleComplete(taskId) {
 // ❌ Delete task
 async function deleteTask(taskId) {
   try {
-    await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+    await fetch(`https://mu-intraner-portal.onrender.com/api/tasks/${taskId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

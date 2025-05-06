@@ -247,7 +247,7 @@
           if (!courseName || !courseCode || !instructor) return;
       
           try {
-            const res = await fetch("http://localhost:5000/api/courses", {
+            const res = await fetch("https://mu-intraner-portal.onrender.com/api/courses", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -271,7 +271,7 @@
       
         async function loadRegisteredCourses() {
             try {
-                const res = await fetch("http://localhost:5000/api/courses", {
+                const res = await fetch("https://mu-intraner-portal.onrender.com/api/courses", {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem("token")}`
                     }

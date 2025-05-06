@@ -53,7 +53,7 @@ async function fetchTasks() {
             return;
         }
 
-        const res = await fetch("http://localhost:5000/api/tasks", {
+        const res = await fetch("https://mu-intraner-portal.onrender.com/api/tasks", {
             headers: {
                 Authorization: `Bearer ${currentToken}`
             }
@@ -125,7 +125,7 @@ async function addTask() {
             return;
         }
 
-        await fetch("http://localhost:5000/api/tasks", {
+        await fetch("https://mu-intraner-portal.onrender.com/api/tasks", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -157,7 +157,7 @@ async function toggleComplete(taskId) {
             return;
         }
 
-        const res = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+        const res = await fetch(`https://mu-intraner-portal.onrender.com/api/tasks/${taskId}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${currentToken}`
@@ -196,7 +196,7 @@ async function deleteTask(taskId) {
             return;
         }
 
-        const res = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
+        const res = await fetch(`https://mu-intraner-portal.onrender.com/api/tasks/${taskId}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${currentToken}`
@@ -228,7 +228,7 @@ async function loadTodaySchedule() {
             if (tbody) tbody.innerHTML = `<tr><td colspan="6" class="text-center text-danger">Authentication token missing.</td></tr>`;
             return;
         }
-        const res = await fetch("http://localhost:5000/api/schedule/today", {
+        const res = await fetch("https://mu-intraner-portal.onrender.com/api/schedule/today", {
             headers: {
                 Authorization: `Bearer ${currentToken}`
             }
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     return;
                 }
 
-                const res = await fetch("http://localhost:5000/api/reviews", {
+                const res = await fetch("https://mu-intraner-portal.onrender.com/api/reviews", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -463,7 +463,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        const res = await fetch("http://localhost:5000/api/attendance/summary", {
+        const res = await fetch("https://mu-intraner-portal.onrender.com/api/attendance/summary", {
             headers: {
                 Authorization: "Bearer " + currentToken,
             },
