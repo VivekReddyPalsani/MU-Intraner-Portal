@@ -23,14 +23,14 @@ const CourseMaterial = require('./models/CourseMaterial');
 const MeetingRequest = require("./models/MeetingRequest");
 
 // 🧠 Connect MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/mu_portal')
+mongoose.connect('process.env.MONGODB_URI')
   .then(() => console.log('✅ Connected to MongoDB'))
   .catch(err => console.error('❌ MongoDB connection error:', err));
 
 // ⚙️ Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static("C:/Users/varsh/college/Software eng/MU_IntranetPortal"));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // 🔐 JWT Middleware
 const authenticate = (req, res, next) => {
