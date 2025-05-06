@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Course Materials</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+
+  <div class="container mt-5">
+    <h2 class="text-primary text-center mb-4">📚 Course Materials</h2>
+    <button class="btn btn-outline-light mb-3" onclick="history.back()">⬅ Back</button>
+    
+    <table class="table table-bordered table-dark text-center">
+      <thead>
+        <tr>
+          <th>Subject Code</th>
+          <th>Subject Name</th>
+          <th>View Files</th>
+        </tr>
+      </thead>
+      <tbody id="student-material-table">
+        <!-- Filled dynamically -->
+      </tbody>
+    </table>
+
+    <div id="file-list" class="mt-4"></div>
+  </div>
+
+  <script>
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!token || !user || user.role !== "student") {
+      alert("Unauthorized access.");
+      window.location.href = "signin.html";
+    }
+
+    const subjects = [
+      { code: "CS3201", name: "Software Engineering" },
+      { code: "ECE203", name: "Introduction to Modern Cryptography" },
+    ];
+
+    const table = document.getElementById("student-material-table");
+    const fileList = document.getElementById("file-list");
+
+    subjects.forEach(subject => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${subject.code}</td>
+        <td>${subject.name}</td>
+        <td><button class="btn btn-primary btn-sm" onclick="loadFiles('${subject.code}')">View</button></td>
+      `;
+      table.appendChild(tr);
+    });
+
+    async function loadFiles(subjectCode) {
+      try {
+        const res = await fetch(`http://localhost:5000/api/materials/${subjectCode}`, {
+          headers: { Authorization: "Bearer " + token }
+        });
+        const files = await res.json();
+
+        if (!files.length) {
+          fileList.innerHTML = `<p class="text-warning">No materials found for <b>${subjectCode}</b>.</p>`;
+          return;
+        }
+
+        const links = files.map(f => `<li><a href="/${f.filepath}" target="_blank" class="text-light">${f.filename}</a></li>`).join("");
+        fileList.innerHTML = `<h5 class="mt-4">Files for ${subjectCode}:</h5><ul>${links}</ul>`;
+      } catch (err) {
+        console.error("View error:", err);
+        fileList.innerHTML = `<p class="text-danger">Failed to load materials.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

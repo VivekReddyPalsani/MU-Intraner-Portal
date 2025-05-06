@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MU Faculty Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Faculty Dashboard" name="keywords">
+    <meta content="Faculty Dashboard for Mahindra University" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheetラスト://www.w3schools.com/css/css_positioning.asp
+    <link href=" lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #191c24;
+            color: #E6E8EB;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        #spinner {
+            background-color: #191c24 !important;
+        }
+
+        .container-fluid {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background-color: #191c24;
+        }
+
+        .sidebar a {
+            color: #A4A9AD;
+        }
+
+        .sidebar a:hover {
+            color: #FFFFFF;
+        }
+
+        .sidebar .active {
+            background-color: #31353D;
+            color: #FFFFFF;
+        }
+
+        .content {
+            background-color: #191c24;
+            flex-grow: 1;
+        }
+
+        .navbar {
+            background-color: #191c24;
+        }
+
+        .dropdown-menu {
+            background-color: #31353D;
+            border: none;
+        }
+
+        .dropdown-item {
+            color: #E6E8EB;
+        }
+
+        .dropdown-item:hover {
+            background-color: #495057;
+        }
+
+        .bg-secondary,
+        .btn-secondary {
+            background-color: #31353D !important;
+            color: #E6E8EB !important;
+            border-color: #31353D !important;
+        }
+
+        .rounded {
+            border-radius: 0.5rem !important;
+        }
+
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quick-actions h2 {
+            color: #FFFFFF;
+            width: 100%;
+        }
+
+        .quick-actions button,
+        .quick-actions select,
+        .quick-actions input {
+            background-color: #495057;
+            color: #E6E8EB;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0.3rem;
+        }
+
+        .course-list {
+            margin-bottom: 2rem;
+        }
+
+        .content-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .content-table thead {
+            background-color: #495057;
+            color: #E6E8EB;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #6c757d;
+        }
+
+        .content-table tbody tr:nth-child(even) {
+            background-color: #31353D;
+        }
+
+        .actions a {
+            color: #E6E8EB;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+
+        .footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>MU Faculty</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">John Doe</h6>
+                        <span>Faculty</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-book me-2"></i>Course content</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-user-check me-2"></i>Attendance</a>
+                    <a href="library.html" class="nav-item nav-link"><i class="fa fa-book-open me-2"></i>Library</a>
+                    <a href="book-slot.html" class="nav-item nav-link"><i class="fa fa-calendar-check me-2"></i>Slot
+                        Confirmation</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-map-marker-alt me-2"></i>Mahindra map</a>
+                    <a href="index.html" class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="fa fa-laptop me-2"></i>Elements</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="button.html" class="dropdown-item">Buttons</a>
+                            <a href="typography.html" class="dropdown-item">Typography</a>
+                            <a href="element.html" class="dropdown-item">Other Elements</a>
+                        </div>
+                    </div>
+                    <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
+                                class="far fa-file-alt me-2"></i>Pages</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary m-2">Live Chat</button>
+                </div>
+            </nav>
+        </div>
+
+        <div class="content">
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Messages</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jane sent you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jim sent you a message</h6>
+                                        <small>20 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all messages</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Alerts</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New course material uploaded for CSE305</h6>
+                                <small>2 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Assignment 2 grades released for ECE401</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all alerts</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row bg-secondary rounded align-items-center justify-content-center mx-0 p-4">
+                    <section class="quick-actions">
+                        <h2>Manage Course Content</h2>
+                        <button><i class="fa fa-upload me-2"></i>Upload New Content</button>
+                        <select>
+                            <option value="">Organize By</option>
+                            <option value="subject">Subject</option>
+                            <option value="upload_date">Upload Date</option>
+                            <option value="file_type">File Type</option>
+                            <option value="visibility">Visibility</option>
+                            <option value="last_modified">Last Modified</option>
+                        </select>
+                        <input type="text" placeholder="Search My Files">
+                    </section>
+
+                    <section class="course-list">
+                        <h3>My Courses</h3>
+                        <div class="table-responsive mt-3">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>File Name</th>
+                                        <th>Upload Date</th>
+                                        <th>View</th>
+                                        <th>Upload Content</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>CSE101 - Introduction to Programming</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ECE203 - Digital Logic Design</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ME102 - Engineering Mechanics</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>BT201 - Principles of Biotechnology</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>HS101 - Introduction to Social Sciences</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>CSE305 - Advanced Data Structures</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><a href="#"><i class="fa fa-eye"></i></a></td>
+                                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-upload"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section class="content-library">
+                        <h3>All Content</h3>
+                        <div class="table-responsive">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>Associated Course(s)</th>
+                                        <th>File Type</th>
+                                        <th>Upload Date</th>
+                                        <th>Last Modified</th>
+                                        <th>Visibility</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lecture1_Intro.pdf</td>
+                                        <td>CSE101</td>
+                                        <td><i class="fa fa-file-pdf text-danger me-2"></i>PDF</td>
+                                        <td>2025-04-15</td>
+                                        <td>2025-04-16</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Assignment1_Instructions.docx</td>
+                                        <td>CSE101</td>
+                                        <td><i class="fa fa-file-word text-primary me-2"></i>DOCX</td>
+                                        <td>2025-04-10</td>
+                                        <td>2025-04-12</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Digital_Circuits_Slides.pptx</td>
+                                        <td>ECE203</td>
+                                        <td><i class="fa fa-file-powerpoint text-warning me-2"></i>PPTX</td>
+                                        <td>2025-04-20</td>
+                                        <td>2025-04-20</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mechanics_Problem_Set.pdf</td>
+                                        <td>ME102</td>
+                                        <td><i class="fa fa-file-pdf text-danger me-2"></i>PDF</td>
+                                        <td>2025-04-18</td>
+                                        <td>2025-04-19</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Biotech_Lab_Manual.docx</td>
+                                        <td>BT201</td>
+                                        <td><i class="fa fa-file-word text-primary me-2"></i>DOCX</td>
+                                        <td>2025-04-12</td>
+                                        <td>2025-04-14</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Social_Theories_Notes.pdf</td>
+                                        <td>HS101</td>
+                                        <td><i class="fa fa-file-pdf text-danger me-2"></i>PDF</td>
+                                        <td>2025-04-19</td>
+                                        <td>2025-04-20</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Advanced_Programming_Topics.pdf</td>
+                                        <td>CSE305</td>
+                                        <td><i class="fa fa-file-pdf text-danger me-2"></i>PDF</td>
+                                        <td>2025-04-21</td>
+                                        <td>2025-04-21</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Macroeconomics_Notes.docx</td>
+                                        <td>HS205</td>
+                                        <td><i class="fa fa-file-word text-primary me-2"></i>DOCX</td>
+                                        <td>2025-04-17</td>
+                                        <td>2025-04-18</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sorting_Algorithms_Visualized.html</td>
+                                        <td>CSE305</td>
+                                        <td><i class="fa fa-code text-secondary me-2"></i>HTML</td>
+                                        <td>2025-04-16</td>
+                                        <td>2025-04-17</td>
+                                        <td>Visible</td>
+                                        <td class="actions">
+                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                            <a href="#"><i class="fa fa-edit"></i></a>
+                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="footer container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 text-center text-sm-center">
+                            © <a href="#">Mahindra University</a>, All Right Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

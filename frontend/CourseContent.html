@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Course Upload</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+   
+<!-- Sidebar Start -->
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-secondary navbar-dark">
+        <a href="index.html" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>MU</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                </div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0 username-placeholder">Loading...</h6>
+                <span class="userrole-placeholder">Loading...</span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="faculty.html" class="nav-item nav-link active">
+                <i class="fa fa-tachometer-alt me-2"></i>Dashboard
+            </a>
+  
+            <a href="fcalendar.html" class="nav-item nav-link">
+                <i class="fa fa-calendar me-2"></i>Calendar
+            </a>
+            <a href="flibrary.html" class="nav-item nav-link">
+                <i class="fa fa-book-open me-2"></i>Library
+            </a>
+            <a href="SlotConfirmation.html" class="nav-item nav-link">
+                <i class="fa fa-calendar-check me-2"></i>Slot Confirmation
+            </a>
+       
+            <a href="livechat.html" class="nav-item nav-link">
+                <i class="fa fa-comments me-2"></i>Live Chat
+            </a>
+            <a href="CourseContent.html" class="nav-item nav-link">
+                <i class="fa fa-book me-2"></i>Course Content
+            </a>
+        </div>
+    </nav>
+</div>
+<!-- Sidebar End -->
+              
+</nav>
+</div>
+<div class="content">
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="faculty.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+        <form class="d-none d-md-flex ms-4">
+            <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+        </form>
+        <div class="navbar-nav align-items-center ms-auto">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                        style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex username-placeholder">John Doe</span>
+                    </a>
+                <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                    <a href="#" class="dropdown-item">My Profile</a>
+                    <a href="#" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+            <!-- Navbar End -->
+
+<!-- Begin Page Content -->
+
+
+
+    <!-- Course Content Table -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="bg-secondary rounded h-100 p-4">
+                <h3 class="mb-4 text-center text-primary">Course Content</h3>
+
+                <!-- Summary Cards -->
+                <div class="row g-4 justify-content-center">
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-file-alt fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Total Files</p>
+                                <h6 class="mb-0">Unknown</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-4">
+                        <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-book fa-3x text-primary"></i>
+                            <div class="ms-3">
+                                <p class="mb-2">Subjects</p>
+                                <h6 class="mb-0">2</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark text-white text-center">
+                        <thead>
+                          <tr>
+                            <th>Subject Code</th>
+                            <th>Subject Name</th>
+                            <th>Upload</th>
+                            <th>View</th>
+                          </tr>
+                        </thead>
+                        <tbody id="course-table">
+                          <!-- JS will render rows here -->
+                        </tbody>
+                      </table>                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Recent Activity + Quick Upload Centered -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4 justify-content-center">
+        
+
+        
+
+    </div>
+</div>
+
+
+
+
+
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 text-center text-sm-center">
+                            &copy; <a href="#">Mahindra University</a>, All Right Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <<!-- Template Javascript -->
+<script src="js/main.js"></script>
+<script src="js/facultydashboard.js"></script> 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!token || !user || user.role !== "faculty") {
+    alert("Unauthorized access.");
+    window.location.href = "signin.html";
+    return;
+  }
+
+  // Attach upload form handler (manual upload)
+  const uploadForm = document.getElementById('uploadForm');
+  if (uploadForm) {
+    uploadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(uploadForm);
+      formData.append("facultyId", user.id);
+      formData.append("facultyName", user.name);
+
+      try {
+        const res = await fetch("http://localhost:5000/api/upload-course", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token
+          },
+          body: formData
+        });
+
+        const data = await res.json();
+        document.getElementById("uploadStatus").textContent = data.message;
+      } catch (err) {
+        console.error("Upload error:", err);
+        document.getElementById("uploadStatus").textContent = "Upload failed. Please try again.";
+      }
+    });
+  }
+
+  // Render course subjects table
+  const subjects = [
+    { code: "CS3201", name: "Software Engineering" },
+    { code: "ECE203", name: "Introduction to Modern Cryptography" },
+    // Add more subjects here
+  ];
+
+  const table = document.getElementById("course-table");
+  table.innerHTML = "";
+
+  subjects.forEach(subject => {
+    const uploadInputId = `upload-${subject.code}`;
+
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${subject.code}</td>
+      <td>${subject.name}</td>
+      <td>
+        <input type="file" id="${uploadInputId}" style="display:none;" />
+        <button class="btn btn-outline-primary btn-sm" onclick="document.getElementById('${uploadInputId}').click()">Upload</button>
+      </td>
+      <td>
+        <button class="btn btn-outline-secondary btn-sm" onclick="viewFiles('${subject.code}')">View</button>
+      </td>
+    `;
+    table.appendChild(tr);
+
+    // Upload handler for each row
+    document.getElementById(uploadInputId).addEventListener("change", async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("subjectCode", subject.code);
+      formData.append("subjectName", subject.name);
+      formData.append("facultyId", user.id);
+      formData.append("facultyName", user.name);
+
+      try {
+        const res = await fetch("http://localhost:5000/api/upload-course", {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer " + token
+          },
+          body: formData
+        });
+
+        const result = await res.json();
+        alert(result.success ? "✅ Uploaded successfully" : "❌ Upload failed: " + result.message);
+      } catch (err) {
+        console.error("Upload error:", err);
+        alert("❌ Upload failed.");
+      }
+    });
+  });
+
+  // View files logic
+  window.viewFiles = function(subjectCode) {
+  const subject = subjects.find(sub => sub.code === subjectCode);
+  if (!subject) return alert("Subject not found!");
+
+  localStorage.setItem("viewSubjectCode", subject.code);
+  localStorage.setItem("viewSubjectName", subject.name);
+  window.location.href = "view-materials.html";
+};
+
+});
+</script>
+</body>
+</html>

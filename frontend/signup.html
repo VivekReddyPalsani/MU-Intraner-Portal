@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>MU-SignUp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/favicon.ico" rel="icon">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <div class="container-fluid">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <a href="index.html" class="">
+                                <h3 class="text-primary"><i class="fa fa-user-plus me-2"></i>MU</h3>
+                            </a>
+                            <h3>Sign Up</h3>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Full Name" required>
+                            <label for="name">Full Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <select class="form-control" id="role" required>
+                                <option value="student">Student</option>
+                                <option value="faculty">Faculty</option>
+                            </select>
+                            <label for="role">Role</label>
+                        </div>
+
+                        <button type="button" class="btn btn-primary py-3 w-100 mb-4" onclick="handleSignup()">Register</button>
+                        <p class="text-center">Already have an account? <a href="signin.html">Sign In</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Script -->
+    <script>
+        async function handleSignup() {
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const role = document.getElementById("role").value; // dropdown or radio button
+        
+          if (!name || !email || !password || !role) {
+            return alert("Please fill all fields.");
+          }
+        
+          try {
+            const res = await fetch("http://localhost:5000/api/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({ name, email, password, role })
+            });
+        
+            const result = await res.json();
+        
+            if (!res.ok) {
+              return alert(result.message || "Signup failed.");
+            }
+        
+            alert(result.message);
+            window.location.href = "signin.html"; // redirect to login
+          } catch (err) {
+            console.error("🔥 Error:", err);
+            alert("Something went wrong!");
+          }
+        }
+    </script>
+        
+</body>
+</html>

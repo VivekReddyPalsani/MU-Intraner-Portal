@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MU - Assignment Submissions</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="index.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>MU</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">John Doe</h6>
+                        <span>Student</span>
+                    </div>
+                </div>
+                <!-- New Menu Items -->
+                <a href="index.html" class="nav-item nav-link active"><i
+                    class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="course-registration.html" class="nav-item nav-link"><i
+                        class="fa fa-book me-2"></i>Registration</a>
+                <a href="fee-portal.html" class="nav-item nav-link"><i class="fa fa-money-bill me-2"></i>Fee
+                    Portal</a>
+                <a href="results.html" class="nav-item nav-link"><i
+                        class="fa fa-graduation-cap me-2"></i>Results</a>
+                <a href="library.html" class="nav-item nav-link"><i class="fa fa-book-open me-2"></i>Library</a>
+                <a href="slotbooking.html" class="nav-item nav-link"><i class="fa fa-calendar-check me-2"></i>Book a
+                    Slot</a>
+                <a href="map.html" class="nav-item nav-link"><i class="fa fa-map me-2"></i>Mahindra Map</a>
+                <a href="eventregistration.html" class="nav-item nav-link"><i
+                        class="fa fa-calendar-alt me-2"></i>Event Registration</a>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Vivek send you a message</h6>
+                                        <small>10 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="live-chat.html" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Alerts</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">SE-SRS deadline in 1hr</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all alerts</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="settings.html" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+            <!-- Assignment Submissions Section -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <!-- Assignment List -->
+                    <div class="col-12 col-md-6">
+                        <div class="bg-secondary rounded p-4">
+                            <h5 class="mb-4 text-center text-primary">Assignments</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-dark">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Subject</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="assignmentList">
+                                        <tr data-id="1">
+                                            <td>Assignment 1</td>
+                                            <td>DNN</td>
+                                            <td>April 30, 2025</td>
+                                            <td class="status">Pending</td>
+                                            <td><button class="btn btn-sm btn-primary submit-btn">Submit</button></td>
+                                        </tr>
+                                        <tr data-id="2">
+                                            <td>Assignment 2</td>
+                                            <td>SE</td>
+                                            <td>April 29, 2025</td>
+                                            <td class="status">Pending</td>
+                                            <td><button class="btn btn-sm btn-primary submit-btn">Submit</button></td>
+                                        </tr>
+                                        <tr data-id="3">
+                                            <td>Project Proposal</td>
+                                            <td>RS</td>
+                                            <td>April 28, 2025</td>
+                                            <td class="status">Submitted</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submission Form -->
+                    <div class="col-12 col-md-6">
+                        <div class="bg-secondary rounded p-4">
+                            <h5 class="mb-4 text-center text-primary">Submit Assignment</h5>
+                            <form id="submissionForm">
+                                <div class="mb-3">
+                                    <label for="assignmentSelect" class="form-label text-light">Select
+                                        Assignment</label>
+                                    <select class="form-control bg-dark border-0" id="assignmentSelect" required>
+                                        <option value="" disabled selected>Select an assignment</option>
+                                        <option value="1">Assignment 1 - DNN</option>
+                                        <option value="2">Assignment 2 - SE</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fileUpload" class="form-label text-light">Upload File</label>
+                                    <input type="file" class="form-control bg-dark border-0" id="fileUpload"
+                                        accept=".pdf,.doc,.docx" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="notes" class="form-label text-light">Notes (Optional)</label>
+                                    <textarea class="form-control bg-dark border-0" id="notes" rows="3"
+                                        placeholder="Add any submission notes"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Assignment</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Assignment Submissions Section End -->
+
+            <!-- Footer Start -->
+            <div class="footer">
+                <div class="container-fluid pt-4 px-4">
+                    <div class="bg-secondary rounded-top p-4">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 text-center text-sm-center">
+                                © <a href="#">Mahindra University</a>, All Right Reserved.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Custom JavaScript for Assignment Submissions -->
+    <script>
+        $(document).ready(function () {
+            // Handle Submit button clicks in the table
+            $('.submit-btn').on('click', function () {
+                const assignmentId = $(this).closest('tr').data('id');
+                $('#assignmentSelect').val(assignmentId).trigger('change');
+            });
+
+            // Handle form submission
+            $('#submissionForm').on('submit', function (e) {
+                e.preventDefault();
+                const assignmentId = $('#assignmentSelect').val();
+                const file = $('#fileUpload')[0].files[0];
+                const notes = $('#notes').val();
+
+                if (assignmentId && file) {
+                    // Update the status in the table
+                    const row = $(`#assignmentList tr[data-id="${assignmentId}"]`);
+                    row.find('.status').text('Submitted');
+                    row.find('td:last').html('-');
+
+                    // Reset form
+                    this.reset();
+                    $('#assignmentSelect').val('').trigger('change');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

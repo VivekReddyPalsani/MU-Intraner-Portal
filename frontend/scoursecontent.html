@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MU - Course Content Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Course Content Dashboard" name="keywords">
+    <meta content="View course content" name="description">
+
+    <link href="img/favicon.ico" rel="icon"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"> <link href="css/style.css" rel="stylesheet"> <style>
+        /* Custom styles for better visual feedback */
+        #subject-table-body td,
+        #fileList div {
+            word-break: break-word;
+        }
+        .btn-view-file {
+            margin-left: 10px;
+        }
+        .list-group-item-action { /* For file items if you use list-group */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <div class="container-fluid pt-4 px-4"> <div class="mb-4">
+            <a href="index.html" class="btn btn-primary"><i class="bi bi-arrow-left me-2"></i>Back to Dashboard</a> </div>
+        <div class="bg-secondary rounded p-4">
+            <h3 class="text-primary mb-4">Course Content</h3>
+            <div class="table-responsive">
+                <table class="table text-start align-middle table-bordered table-hover mb-0 text-white w-100">
+                    <thead>
+                        <tr class="text-white"> <th scope="col">Subject</th>
+                            <th scope="col">Faculty</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subject-table-body">
+                        <tr>
+                            <td colspan="3" class="text-center">Loading subjects...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal fade" id="filesModal" tabindex="-1" aria-labelledby="filesModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable"> <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title" id="filesModalLabel">Course Files</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="fileListContainer" class="text-white">
+                            <p class="text-center">Loading files...</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid pt-4 px-4">
+        <div class="bg-secondary rounded-top p-4 mt-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    © <a href="#" class="text-primary">Mahindra University</a>, All Right Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const token = localStorage.getItem('token'); // Retrieve JWT token from localStorage
+
+            // Helper function to escape HTML to prevent XSS
+            function escapeHtml(unsafe) {
+                if (typeof unsafe !== 'string') {
+                    return unsafe === null || unsafe === undefined ? "" : String(unsafe);
+                }
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            // --- 1. Load Subjects ---
+            function loadSubjects() {
+                if (!token) {
+                    $('#subject-table-body').html('<tr><td colspan="3" class="text-center text-danger">Authentication token not found. Please login.</td></tr>');
+                    console.error('JWT token not found.');
+                    return;
+                }
+
+                $.ajax({
+                    url: '/api/student/subjects', // Backend endpoint to get unique subjects
+                    type: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function (subjects) {
+                        const $subjectTableBody = $('#subject-table-body');
+                        $subjectTableBody.empty(); // Clear loading message or previous data
+
+                        if (subjects && subjects.length > 0) {
+                            subjects.forEach(function (subject) {
+                                // If your /api/student/subjects returns facultyName, use subject.facultyName
+                                // Otherwise, you might need to adjust or fetch it differently.
+                                // Using subject.subjectName as a placeholder for faculty if not available.
+                                const facultyName = subject.facultyName || 'N/A'; // Default if not provided
+
+                                const row = `
+                                    <tr>
+                                        <td>${escapeHtml(subject.subjectName)}</td>
+                                        <td>${escapeHtml(facultyName)}</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-primary view-files-btn"
+                                                    data-subjectcode="${escapeHtml(subject.subjectCode)}"
+                                                    data-subjectname="${escapeHtml(subject.subjectName)}"
+                                                    data-bs-toggle="modal" data-bs-target="#filesModal">
+                                                View
+                                            </button>
+                                        </td>
+                                    </tr>`;
+                                $subjectTableBody.append(row);
+                            });
+                        } else {
+                            $subjectTableBody.html('<tr><td colspan="3" class="text-center">No courses found.</td></tr>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("❌ Error loading subjects:", error);
+                        let errorMessage = 'Error loading courses.';
+                        if (xhr.status === 401 || xhr.status === 403) {
+                            errorMessage = 'Unauthorized or session expired. Please login again.';
+                        }
+                        $('#subject-table-body').html(`<tr><td colspan="3" class="text-center text-danger">${errorMessage}</td></tr>`);
+                    }
+                });
+            }
+
+            // Initial call to load subjects
+            loadSubjects();
+
+            // --- 2. Handle "View" Button Click to Show Files for a Subject ---
+            // Use event delegation for dynamically added buttons
+            $('#subject-table-body').on('click', '.view-files-btn', function () {
+                if (!token) {
+                    alert('Authentication token not found. Please login.');
+                    console.error('JWT token not found for viewing files.');
+                    return;
+                }
+
+                const subjectCode = $(this).data('subjectcode');
+                const subjectName = $(this).data('subjectname');
+
+                $('#filesModalLabel').text(escapeHtml(subjectName) + ' Files'); // Set modal title
+                const $fileListContainer = $('#fileListContainer');
+                $fileListContainer.html('<p class="text-center">Loading files...</p>'); // Show loading state
+
+                // The button itself triggers the modal via data-bs-toggle and data-bs-target
+                // So, we just need to load the content.
+
+                $.ajax({
+                    url: `/api/materials/${subjectCode}`, // Backend endpoint for specific subject materials
+                    type: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + token
+                    },
+                    success: function (files) {
+                        $fileListContainer.empty(); // Clear loading state or previous files
+                        if (files && files.length > 0) {
+                            files.forEach(function (file) {
+                                // Ensure filepath is correctly formatted for URL
+                                // In backend, filepath is 'uploads\\timestamp-filename.ext'
+                                // For URL, it should be '/uploads/timestamp-filename.ext'
+                                const filePathForUrl = file.filepath.replace(/\\/g, '/');
+                                // Assuming filepath from DB *already* includes "uploads" prefix.
+                                // e.g. filepath = "uploads/12345-file.pdf"
+                                const downloadUrl = `/${filePathForUrl}`;
+
+
+                                const fileItem = `
+                                    <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                                        <span>${escapeHtml(file.filename)}</span>
+                                        <div>
+                                            <button class="btn btn-sm btn-outline-info summarize-btn" 
+                                                    data-fileid="${escapeHtml(file._id)}" 
+                                                    data-filename="${escapeHtml(file.filename)}"
+                                                    disabled> Summarize 
+                                            </button>
+                                            <a href="${downloadUrl}" target="_blank" class="btn btn-sm btn-outline-primary btn-view-file">
+                                                View/Download
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div id="summary-${escapeHtml(file._id)}" class="p-2 bg-light text-dark rounded mt-1" style="display: none; font-size: 0.9em;"></div>`;
+                                $fileListContainer.append(fileItem);
+                            });
+                        } else {
+                            $fileListContainer.html('<p class="text-center">No files found for this subject.</p>');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(`❌ Error fetching materials for ${subjectCode}:`, error);
+                        let fileErrorMessage = 'Error loading files.';
+                        if (xhr.status === 401 || xhr.status === 403) {
+                            fileErrorMessage = 'Unauthorized or session expired. Please login again.';
+                        }
+                        $fileListContainer.html(`<p class="text-center text-danger">${fileErrorMessage}</p>`);
+                    }
+                });
+            });
+
+            // --- 3. Handle Summarize Button Click (Currently a Placeholder) ---
+            // Use event delegation as these buttons are also dynamically added
+            $('#fileListContainer').on('click', '.summarize-btn', function () {
+                // This button is currently disabled in the HTML template above.
+                // If you enable it, this code will run.
+                const fileId = $(this).data('fileid');
+                const fileName = $(this).data('filename');
+                const $summaryOutput = $(`#summary-${escapeHtml(fileId)}`);
+
+                alert(`Summarize functionality for "${escapeHtml(fileName)}" (ID: ${escapeHtml(fileId)}) is not yet implemented.`);
+
+                // Example: Show a loading message if you were to implement it
+                // $summaryOutput.html('<p>Loading summary...</p>').slideToggle();
+                //
+                // Actual summarization would involve an AJAX call to a summarization API:
+                /*
+                $.ajax({
+                    url: '/api/summarize-file', // Your hypothetical summarization endpoint
+                    type: 'POST',
+                    headers: { 'Authorization': 'Bearer ' + token },
+                    contentType: 'application/json',
+                    data: JSON.stringify({ fileId: fileId }),
+                    success: function(response) {
+                        $summaryOutput.html(`<p>${escapeHtml(response.summary)}</p>`).show();
+                    },
+                    error: function() {
+                        $summaryOutput.html('<p class="text-danger">Error generating summary.</p>').show();
+                    }
+                });
+                */
+            });
+        });
+    </script>
+
+</body>
+</html>

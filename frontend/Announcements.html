@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MU - Faculty Announcements</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <link href="img/favicon.ico" rel="icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        /* Adjust padding for content without sidebar/navbar */
+        .content-no-template {
+            padding: 20px; /* Add padding around the content */
+            /* If you want the content to span the full width, you can remove or comment out the lines below */
+            max-width: 1200px; /* This limits the maximum width */
+            margin: 0 auto; /* This centers the block */
+        }
+
+        .back-to-dashboard-btn {
+            margin-bottom: 20px; /* Space below the button */
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+    <div class="container-fluid position-relative d-flex p-0">
+        <div class="content-no-template">
+
+            <div class="back-to-dashboard-btn">
+                 <a href="faculty.html" class="btn btn-primary"><i class="fa fa-arrow-left me-2"></i>Back to Dashboard</a>
+            </div>
+
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-secondary rounded p-4">
+                            <h5 class="mb-4 text-center text-primary">Create New Announcement</h5>
+                            <form id="announcementForm">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label text-light">Title</label>
+                                    <input type="text" class="form-control bg-dark border-0" id="title" required
+                                        placeholder="Enter announcement title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="content" class="form-label text-light">Content</label>
+                                    <textarea class="form-control bg-dark border-0" id="content" rows="4" required
+                                        placeholder="Enter announcement details"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="attachment" class="form-label text-light">Attachment Link
+                                        (Optional)</label>
+                                    <input type="url" class="form-control bg-dark border-0" id="attachment"
+                                        placeholder="Enter link to document or file">
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Announcement</button>
+                            </form>
+
+                            <div class="mt-4">
+                                <h6 class="mb-3 text-primary">Past Announcements</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-dark">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>Content</th>
+                                                <th>Date</th>
+                                                <th>Attachment</th> </tr>
+                                        </thead>
+                                        <tbody id="announcementList">
+                                            <tr>
+                                                <td colspan="4" class="text-center text-muted">No announcements yet.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="container-fluid pt-4 px-4">
+                    <div class="bg-secondary rounded-top p-4">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 text-center text-sm-center">
+                                © <a href="#">Mahindra University</a>, All Right Reserved.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            const announcementListBody = $('#announcementList');
+            const announcementForm = $('#announcementForm');
+
+            // Function to add a new announcement row to the table (client-side only)
+            function addAnnouncementRow(title, content, date, attachment) {
+                 // Remove the "No announcements yet." placeholder if it exists
+                 if (announcementListBody.find('tr td[colspan="4"]').text() === 'No announcements yet.') {
+                     announcementListBody.empty();
+                 }
+
+                // Sanitize inputs before adding to HTML to prevent XSS
+                const escapedTitle = $('<div>').text(title).html();
+                const escapedContent = $('<div>').text(content).html();
+                // Escape the link text itself, but not the href attribute
+                const escapedAttachmentLinkText = $('<div>').text(attachment && attachment !== '-' ? 'Link' : '-').html();
+
+
+                const newRow = `
+                    <tr>
+                        <td>${escapedTitle}</td>
+                        <td>${escapedContent}</td>
+                        <td>${date}</td>
+                        <td>${attachment && attachment !== '-' ? `<a href="${$('<div>').text(attachment).html()}" class="text-primary" target="_blank">${escapedAttachmentLinkText}</a>` : '-'}</td>
+                    </tr>
+                `;
+                announcementListBody.prepend(newRow); // Add new announcement at the top
+            }
+
+            // Handle form submission (currently client-side only)
+            announcementForm.on('submit', function (e) {
+                e.preventDefault(); // Prevent actual form submission
+
+                const title = $('#title').val().trim();
+                const content = $('#content').val().trim();
+                const attachment = $('#attachment').val().trim() || '-';
+                // Use backend timestamp when integrating backend
+                const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                if (!title || !content) {
+                    alert('Title and Content are required.');
+                    return;
+                }
+
+                // --- Backend Integration Needed Here ---
+                // Instead of just adding to the table, you would typically
+                // send this data to your backend API using fetch():
+                /*
+                fetch('/api/announcements', { // Replace with your actual backend endpoint
+                    method: 'POST',
+                    headers: {
+                         'Content-Type': 'application/json',
+                         'Authorization': 'Bearer ' + localStorage.getItem('token') // Include token for authentication
+                         // Add role check header if needed by backend
+                    },
+                    body: JSON.stringify({ title, content, attachment })
+                })
+                .then(response => {
+                    // Check for authentication/authorization errors first (401, 403)
+                     if (response.status === 401 || response.status === 403) {
+                         alert('Authentication failed. Please log in again.');
+                         window.location.href = 'signin.html'; // Redirect to login
+                         return Promise.reject('Authentication failed'); // Stop processing
+                     }
+                    if (!response.ok) {
+                        // Handle other errors
+                         response.json().then(err => console.error('Backend Error:', err));
+                        throw new Error('Failed to save announcement');
+                    }
+                    return response.json(); // Assuming backend returns the saved announcement
+                })
+                .then(savedAnnouncement => {
+                    // Use data from the backend for date and other properties
+                    const announceDate = new Date(savedAnnouncement.createdAt || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    addAnnouncementRow(savedAnnouncement.title, savedAnnouncement.content, announceDate, savedAnnouncement.attachment);
+                     alert('Announcement submitted successfully!');
+                     announcementForm[0].reset(); // Reset form
+                })
+                .catch(error => {
+                    console.error('Error submitting announcement:', error);
+                    // Generic error message unless you handle specific backend error responses
+                    if (error.message !== 'Authentication failed') {
+                       alert('Failed to submit announcement. Please try again or check console.');
+                    }
+                });
+                */
+                // --- End Backend Integration Placeholder ---
+
+                // Client-side only addition for demonstration (Remove this when using backend)
+                addAnnouncementRow(title, content, date, attachment);
+                // alert('Announcement added to table (client-side only). To save persistently, integrate with backend API.');
+                announcementForm[0].reset(); // Reset form
+            });
+
+            // *** IMPORTANT ***
+            // You also need logic here to FETCH existing announcements from the backend
+            // when the page loads and populate the announcementListBody.
+            /*
+            // Example: Function to fetch announcements from backend
+            async function fetchAnnouncements() {
+                const token = localStorage.getItem('token'); // Get token
+                // Optional: Check user role if backend endpoint requires it for faculty access
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (!token || !user || user.role !== 'faculty') { // Assuming only faculty can view this
+                    console.error('Auth token missing or user not faculty for fetching announcements');
+                     announcementListBody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Unauthorized access. Please log in as Faculty.</td></tr>`;
+                    // Redirect to login or faculty dashboard if unauthorized
+                     // window.location.href = 'signin.html';
+                    return;
+                }
+
+                 announcementListBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted">Loading announcements...</td></tr>`; // Loading state
+
+                try {
+                    // Assuming the backend endpoint /api/announcements is accessible by faculty and returns announcements
+                    const response = await fetch('/api/announcements', { // Replace with your actual backend endpoint
+                        headers: {
+                            'Authorization': 'Bearer ' + token // Include token
+                        }
+                    });
+
+                     if (response.status === 401 || response.status === 403) {
+                         alert('Authentication failed. Please log in again.');
+                         window.location.href = 'signin.html'; // Redirect to login
+                         return; // Stop processing
+                     }
+
+
+                    if (!response.ok) {
+                         response.text().then(text => console.error('Backend Fetch Error:', text));
+                        throw new Error('Failed to fetch announcements');
+                    }
+                    const announcements = await response.json();
+
+                     announcementListBody.innerHTML = ''; // Clear loading state
+
+                    if (!Array.isArray(announcements) || announcements.length === 0) {
+                         announcementListBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted">No announcements yet.</td></tr>`;
+                    } else {
+                        // Sort by date if needed (assuming backend provides a date/timestamp field like 'createdAt')
+                        announcements.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort newest first
+
+                        announcements.forEach(announcement => {
+                            // Adapt property names based on your backend response structure (e.g., announcement.title, announcement.content, announcement.createdAt, announcement.attachment)
+                            const announceDate = new Date(announcement.createdAt || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                            addAnnouncementRow(announcement.title, announcement.content, announceDate, announcement.attachment); // Use the helper function
+                        });
+                    }
+
+                } catch (error) {
+                    console.error('Error fetching announcements:', error);
+                     announcementListBody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Error loading announcements.</td></tr>`;
+                }
+            }
+
+            // Call fetchAnnouncements when the page loads using jQuery's ready
+            // Ensure authentication happens before calling this if the backend endpoint is protected
+            const token = localStorage.getItem('token');
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (token && user && user.role === 'faculty') { // Only fetch if faculty is logged in
+                 fetchAnnouncements();
+            } else {
+                 // Display message or redirect if not authorized faculty
+                 announcementListBody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Please log in as Faculty to view announcements.</td></tr>`;
+                 // Optional: Redirect to login
+                 // window.location.href = 'signin.html';
+            }
+
+
+            */
+        });
+    </script>
+
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</body>
+
+</html>

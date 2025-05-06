@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Attendance portal</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+   
+<!-- Sidebar Start -->
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-secondary navbar-dark">
+        <a href="faculty.html" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>MU</h3>
+        </a>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="position-relative">
+                <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                </div>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0 username-placeholder">Loading...</h6>
+                <span class="userrole-placeholder">Loading...</span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <a href="faculty.html" class="nav-item nav-link active">
+                <i class="fa fa-tachometer-alt me-2"></i>Dashboard
+            </a>
+        
+            <a href="fcalendar.html" class="nav-item nav-link">
+                <i class="fa fa-calendar me-2"></i>Calendar
+            </a>
+            <a href="flibrary.html" class="nav-item nav-link">
+                <i class="fa fa-book-open me-2"></i>Library
+            </a>
+            <a href="SlotConfirmation.html" class="nav-item nav-link">
+                <i class="fa fa-calendar-check me-2"></i>Slot Confirmation
+            </a>
+          
+            <a href="livechat.html" class="nav-item nav-link">
+                <i class="fa fa-comments me-2"></i>Live Chat
+            </a>
+            <a href="CourseContent.html" class="nav-item nav-link">
+                <i class="fa fa-book me-2"></i>Course Content
+            </a>
+        </div>
+    </nav>
+</div>
+<!-- Sidebar End -->
+             
+</nav>
+</div>
+<div class="content">
+    <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <a href="faculty.html" class="navbar-brand d-flex d-lg-none me-4">
+            <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+        </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+            <i class="fa fa-bars"></i>
+        </a>
+        <form class="d-none d-md-flex ms-4">
+            <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+        </form>
+        <div class="navbar-nav align-items-center ms-auto">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                        style="width: 40px; height: 40px;">
+                        <span class="d-none d-lg-inline-flex username-placeholder">John Doe</span>
+                    </a>
+                <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                    <a href="#" class="dropdown-item">My Profile</a>
+                    <a href="#" class="dropdown-item">Settings</a>
+                    <a href="#" class="dropdown-item" onclick="logout()">Log Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+            <!-- Navbar End -->
+            <div class="container-fluid pt-4 px-4">
+                <!-- Attendance Summary -->
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <h5 class="mb-4">Attendance Summary</h5>
+                            <div class="bg-dark rounded text-white p-3 mb-4">
+                                <h6 class="mb-2">Class Information</h6>
+                                <div><strong>Subject:</strong> <span id="subject-info">N/A</span></div>
+                                <div><strong>Time:</strong> <span id="time-info">N/A</span></div>
+                                <div><strong>Classroom:</strong> <span id="classroom-info">N/A</span></div>
+                                <div><strong>Branch-Year:</strong> <span id="branch-year-info">N/A - N/A year</span></div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-between">
+                                <div>Total Students: <span id="total-students">2</span></div>
+                                <div>Present: <span id="present-count">0</span></div>
+                                <div>Absent: <span id="absent-count">50</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Attendance Roll Numbers -->
+                <div class="row g-4 mt-4">
+                    <div class="col-12">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div class="d-flex justify-content-end mb-3">
+                                <button id="select-all" class="btn btn-primary btn-sm me-2">Select All</button>
+                                <button id="deselect-all" class="btn btn-danger btn-sm">Deselect All</button>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center">
+                                    <tbody id="roll-number-table">
+                                        <!-- Roll numbers will be added by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button class="btn btn-warning me-2">Save</button>
+                                <button id="submit-attendance" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-secondary rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 text-center text-sm-center">
+                            &copy; <a href="#">Mahindra University</a>, All Right Reserved.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/facultydashboard.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+          const urlParams = new URLSearchParams(window.location.search);
+          const subject = urlParams.get("subject");
+          const time = urlParams.get("time");
+          const classroom = urlParams.get("classroom");
+          const branch = urlParams.get("branch");
+          const year = urlParams.get("year");
+      
+          const token = localStorage.getItem("token");
+      
+          // Update class info UI
+          document.getElementById("subject-info").innerText = subject || "N/A";
+          document.getElementById("time-info").innerText = time || "N/A";
+          document.getElementById("classroom-info").innerText = classroom || "N/A";
+          document.getElementById("branch-year-info").innerText = `${branch || "N/A"} - ${year || "N/A"} year`;
+      
+          // Load student roll numbers
+          try {
+            const res = await fetch(`http://localhost:5000/api/students?branch=${branch}&year=${year}`, {
+              headers: {
+                Authorization: "Bearer " + token
+              }
+            });
+      
+            const students = await res.json();
+            const table = document.getElementById("roll-number-table");
+            table.innerHTML = "";
+      
+            let row;
+            students.forEach((student, index) => {
+              if (index % 10 === 0) {
+                row = document.createElement("tr");
+                table.appendChild(row);
+              }
+      
+              const td = document.createElement("td");
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.className = "student-checkbox";
+              checkbox.id = student.rollNumber;
+      
+              const label = document.createElement("label");
+              label.htmlFor = student.rollNumber;
+              label.innerText = student.rollNumber;
+      
+              td.appendChild(checkbox);
+              td.appendChild(document.createElement("br"));
+              td.appendChild(label);
+              row.appendChild(td);
+            });
+      
+            updateCounts();
+          } catch (err) {
+            console.error("Failed to load students:", err);
+          }
+      
+          // Count updates
+          document.addEventListener("change", updateCounts);
+      
+          function updateCounts() {
+            const checkboxes = document.querySelectorAll(".student-checkbox");
+            const present = Array.from(checkboxes).filter(cb => cb.checked).length;
+            const total = checkboxes.length;
+            const absent = total - present;
+      
+            document.getElementById("present-count").innerText = present;
+            document.getElementById("absent-count").innerText = absent;
+          }
+      
+          // Select all / Deselect all
+          document.getElementById("select-all").addEventListener("click", () => {
+            document.querySelectorAll(".student-checkbox").forEach(cb => cb.checked = true);
+            updateCounts();
+          });
+      
+          document.getElementById("deselect-all").addEventListener("click", () => {
+            document.querySelectorAll(".student-checkbox").forEach(cb => cb.checked = false);
+            updateCounts();
+          });
+
+      
+          // Handle Submit button
+          document.getElementById("submit-attendance").addEventListener("click", async () => {
+            const checkboxes = document.querySelectorAll(".student-checkbox");
+            const presentStudents = Array.from(checkboxes)
+              .filter(cb => cb.checked)
+              .map(cb => cb.id);
+      
+            const payload = {
+              date: new Date().toISOString().split("T")[0],
+              subject,
+              time,
+              classroom,
+              branch,
+              year,
+              presentStudents
+            };
+      
+            try {
+              const res = await fetch("http://localhost:5000/api/attendance/submit", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  Authorization: "Bearer " + token
+                },
+                body: JSON.stringify(payload)
+              });
+      
+              const result = await res.json();
+              alert("✅ Attendance submitted successfully!");
+            } catch (err) {
+              console.error("❌ Error submitting attendance:", err);
+              alert("Error submitting attendance. Try again.");
+            }
+          });
+        });
+    </script>
+      
+
+          
+        
+</body>
+
+</html>
