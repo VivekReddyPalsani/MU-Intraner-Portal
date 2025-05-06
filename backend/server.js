@@ -412,17 +412,11 @@ io.on('connection', (socket) => {
     console.log(`User ${userId} joined their room`);
   });
 
-  socket.on('private_message', async ({ senderId, receiverId, content }) => {
-    const newMsg = new Message({ senderId, receiverId, content });
-    await newMsg.save();
+  socket.on('private_message', (msg) => {
+    // Emit the message to the correct recipient (receiverId is their room)
+    socket.to(msg.receiverId).emit('private_message', msg); // Send the message to the receiver's socket
+});
 
-    io.to(receiverId).emit('private_message', {
-      senderId,
-      receiverId,
-      content,
-      timestamp: new Date()
-    });
-  });
 
   socket.on('disconnect', () => {
     console.log('User disconnected');

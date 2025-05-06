@@ -101,18 +101,12 @@
     <script>
         $(document).ready(function () {
             $('.contact').on('click', function () {
-                $('.chat-header-contact').text($(this).find('h6').text());
-                $('.chat-messages').html(`
-                    <div class="message received mb-3 p-2 rounded" style="background: var(--secondary); max-width: 60%;">
-                        <p class="mb-0 text-light">Hey John, are you ready for the project discussion?</p>
-                        <small class="text-light">10:15 AM</small>
-                    </div>
-                    <div class="message sent mb-3 p-2 rounded" style="background: var(--primary); max-width: 60%; margin-left: auto;">
-                        <p class="mb-0 text-light">Yes, I’ll be there! Let’s meet at 11 AM.</p>
-                        <small class="text-light">10:16 AM</small>
-                    </div>
-                `);
+                const userId = $(this).data('userId'); // Retrieve the userId of the selected contact
+                currentReceiverId = userId; // Set the receiver ID when a contact is clicked
+                $('.chat-header-contact').text($(this).find('h6').text()); // Update the chat header with the contact's name
+                loadChatHistory(userId); // Load the previous messages for the selected contact
             });
+            
 
             $('#messageInput').on('keypress', function (e) {
                 if (e.which === 13) {
@@ -131,18 +125,28 @@
             });
 
             $('.chat-input button').on('click', function () {
-                const message = $('#messageInput').val();
-                if (message.trim()) {
+                const message = $('#messageInput').val().trim();
+                if (message) {
+                    // Emit the message to the server
+                    socket.emit("private_message", {
+                        senderId: currentUser.id,  // Current user's ID
+                        receiverId: currentReceiverId,  // The selected contact's ID
+                        content: message  // The message content
+                    });
+            
+                    // Append the message to the UI as a "sent" message
                     $('.chat-messages').append(`
                         <div class="message sent mb-3 p-2 rounded" style="background: var(--primary); max-width: 60%; margin-left: auto;">
                             <p class="mb-0 text-light">${message}</p>
                             <small class="text-light">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</small>
                         </div>
                     `);
-                    $('#messageInput').val('');
-                    $('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);
+            
+                    $('#messageInput').val('');  // Clear the input field
+                    $('.chat-messages').scrollTop($('.chat-messages')[0].scrollHeight);  // Scroll to the bottom of the chat
                 }
-            });
+            });            
+            
         });
 
         document.addEventListener("DOMContentLoaded", () => {
