@@ -4,7 +4,7 @@ const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
-
+require('dotenv').config();
 const User = require('./models/User');
 const Task = require('./models/Task');
 const Schedule = require('./models/Schedule');
@@ -169,7 +169,7 @@ const io = require('socket.io')(server, {
     }
 });
 server.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at https://mu-intraner-portal.onrender.com:${PORT}`);
 });
 
 
