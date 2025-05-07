@@ -1,88 +1,86 @@
 # MU Intranet Portal
 
-## 🏫 Introduction
-The **MU Intranet Portal** was developed to serve as a centralized, secure, and accessible digital platform for the internal operations of Mahindra University. The primary goal is to streamline communication, academic management, resource sharing, and event coordination in a cohesive and user-friendly environment.
+## Introduction
 
-Designed with **scalability** and **reliability** in mind, the portal ensures:
-- Secure access
-- Minimal downtime
-- Efficient handling of institutional workloads
+The MU Intranet Portal was developed to serve as a centralized, secure, and accessible digital platform for the internal operations of Mahindra University. The primary objective is to streamline communication, academic management, resource sharing, and event coordination through a cohesive and user-friendly system.
+
+Designed with scalability and reliability in mind, the portal ensures secure access, minimal downtime, and efficient handling of institutional workloads, providing a robust solution for the university’s day-to-day operations.
 
 ---
 
-## 🔐 Login Details (for Testing/Demo)
+## Login Details (for Testing/Demo)
 
-### 🎓 Student Login
+### Student Login
 - **Username:** `se22uari108@mahindrauniversity.edu.in`  
 - **Password:** `1234`
 
-### 👨‍🏫 Faculty Login
+### Faculty Login
 - **Username:** `avinash.chauhan@mahindrauniversity.edu.in`  
 - **Password:** `1234`
 
 ---
 
-## 🌐 Website Overview
+## Website Overview
 
-Upon login, users are redirected to personalized dashboards:
+Upon login, users are redirected to their personalized dashboards.
 
-- **Students** can:
-  - View attendance
-  - Access registered courses and academic schedules
-  - Check results
-  - Book slots
-  - Use the digital library
-  - Pay fees
-  - Register for events
+**Students can:**
+- View attendance
+- Access registered courses and academic schedules
+- Check results
+- Book slots
+- Access the digital library
+- Pay fees
+- Register for events
 
-- **Faculty** can:
-  - Manage and upload course content
-  - Track student attendance
-  - Interact with students
+**Faculty members can:**
+- Manage and upload course content
+- Track student attendance
+- Interact with students
 
-✨ The interface is clean and intuitive, with tailored designs for both students and faculty to enhance usability.
-
----
-
-## 👥 Roles and Responsibilities
-
-- **Sarvani** – Led UI/UX design, developed the student-side frontend, and managed project documentation.  
-- **Shivani** – Designed and implemented the faculty-side frontend, focusing on workflow optimization.  
-- **Varshika** – Integrated backend services, developed RESTful APIs, and ensured seamless frontend-backend communication.  
-- **Vignesh** – Managed MongoDB database, optimized data schema, and implemented data integrity and security.  
-- **Vivek** – Handled deployment and testing, configured the production environment, and ensured platform stability.
+The user interface is clean and intuitive, with tailored designs for students and faculty to enhance usability and experience.
 
 ---
 
-## 🚀 Key Features
+## Roles and Responsibilities
 
-- Role-Based Login and Dashboards  
-- Live Chat  
-- Course Registration  
-- Document Upload and Access  
-- Academic Schedule Viewing  
-- Result Management  
-- Digital Library Access  
-- Event Registration  
-
-🛠️ **Upcoming Features:**
-- Fee Payment Integration  
-- Analytics Dashboard  
+- **Sarvani** – Led the UI/UX design, developed the student-side frontend, and managed documentation throughout the project.
+- **Shivani** – Designed and implemented the faculty-side frontend, ensuring alignment with faculty workflows and requirements.
+- **Varshika** – Handled backend integration, developed RESTful APIs, and maintained seamless communication between frontend and backend.
+- **Vignesh** – Managed the MongoDB database, optimized the data schema, and ensured data integrity and security.
+- **Vivek** – Responsible for deployment and testing, configured the production environment, and ensured overall platform stability and responsiveness.
 
 ---
 
-## 🧰 Tech Stack
+## Key Features
+
+- Role-based login and dashboards  
+- Live chat functionality  
+- Course registration  
+- Document upload and access  
+- Academic scheduling  
+- Result viewing  
+- Digital library access  
+- Event registration  
+
+**Upcoming Features:**
+- Fee payment integration  
+- Analytics dashboard  
+
+---
+
+## Technology Stack
 
 - **Frontend:** React.js  
 - **Backend:** Node.js, Express.js  
 - **Database:** MongoDB  
-- **Architecture:** Three-tier (Client–Server) with RESTful APIs  
-- **UI/UX:** Custom-designed for both students and faculty  
+- **Architecture:** Three-tier (Client–Server) architecture with RESTful APIs  
+- **UI/UX:** Custom-designed interfaces for both students and faculty  
 
 ---
 
-## 🔗 Deployment
+## Deployment
 
-**Live Demo:** [mu-intraner-portal.onrender.com](https://mu-intraner-portal.onrender.com)
+**Live Demo:** [https://mu-intraner-portal.onrender.com](https://mu-intraner-portal.onrender.com)
 
 ---
