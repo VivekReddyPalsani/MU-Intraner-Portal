@@ -18,6 +18,9 @@ Designed with scalability and reliability in mind, the portal ensures secure acc
 - **Username:** `avinash.chauhan@mahindrauniversity.edu.in`  
 - **Password:** `1234`
 
+### Live Demo
+- [https://mu-intraner-portal.onrender.com](https://mu-intraner-portal.onrender.com)
+
 ---
 
 ## Website Overview
@@ -76,11 +79,5 @@ The user interface is clean and intuitive, with tailored designs for students an
 - **Database:** MongoDB  
 - **Architecture:** Three-tier (Client–Server) architecture with RESTful APIs  
 - **UI/UX:** Custom-designed interfaces for both students and faculty  
-
----
-
-## Deployment
-
-**Live Demo:** [https://mu-intraner-portal.onrender.com](https://mu-intraner-portal.onrender.com)
 
 ---
