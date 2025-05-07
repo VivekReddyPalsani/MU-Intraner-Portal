@@ -390,31 +390,14 @@ app.post('/api/attendance/submit', authenticate, async (req, res) => {
   }
 });
 
-app.get('/api/messages/:user1/:user2', authenticate, async (req, res) => {
-  const { user1, user2 } = req.params;
-  try {
-    const messages = await Message.find({
-      $or: [
-        { senderId: user1, receiverId: user2 },
-        { senderId: user2, receiverId: user1 }
-      ]
-    }).sort({ timestamp: 1 });
-
-    res.json(messages);
-  } catch (err) {
-    console.error("❌ Chat history error:", err);
-    res.status(500).json({ message: "Failed to fetch messages" });
-  }
-});
-
-// Socket.IO logic
 io.on('connection', (socket) => {
   console.log('⚡ New socket connection');
 
   socket.on('join', (userId) => {
-    socket.join(userId); // join room for that user
+    socket.join(userId);
     console.log(`User ${userId} joined their room`);
   });
+  
 
   socket.on('private_message', async ({ senderId, receiverId, content }) => {
     const newMsg = new Message({ senderId, receiverId, content });
@@ -432,7 +415,22 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
   });
 });
+app.get('/api/messages/:user1/:user2', authenticate, async (req, res) => {
+  const { user1, user2 } = req.params;
+  try {
+    const messages = await Message.find({
+      $or: [
+        { senderId: user1, receiverId: user2 },
+        { senderId: user2, receiverId: user1 }
+      ]
+    }).sort({ timestamp: 1 });
 
+    res.json(messages);
+  } catch (err) {
+    console.error("❌ Chat history error:", err);
+    res.status(500).json({ message: "Failed to fetch messages" });
+  }
+});
 app.get('/api/chat/contacts', authenticate, async (req, res) => {
   try {
     const users = await User.find(
