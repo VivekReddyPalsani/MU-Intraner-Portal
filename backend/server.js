@@ -21,9 +21,7 @@ const Message = require('./models/Message');
 const multer = require('multer');
 const CourseMaterial = require('./models/CourseMaterial');
 const MeetingRequest = require("./models/MeetingRequest");
-// server.js
-const Message = require('./Message');
-const Message = require('./models/Message');
+
 
 
 
