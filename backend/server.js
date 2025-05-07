@@ -465,7 +465,7 @@ app.post('/api/upload-course', upload.single('file'), async (req, res) => {
     res.status(500).json({ success: false, message: "Upload failed." });
   }
 });
-app.get('/api/coursematerials/:subjectCode', authenticate, async (req, res) => {
+app.get('/api/materials/:subjectCode', authenticate, async (req, res) => {
   try {
     const files = await CourseMaterial.find({ subjectCode: req.params.subjectCode });
     res.json(files);
@@ -674,7 +674,7 @@ app.get('/api/student/subjects', authenticate, async (req, res) => {
       // ... error handling
   }
 });
-app.get('/api/coursematerials/:subjectCode', authenticate, async (req, res) => {
+app.get('/api/materials/:subjectCode', authenticate, async (req, res) => {
   try {
       const files = await CourseMaterial.find({ subjectCode: req.params.subjectCode });
       res.json(files);
