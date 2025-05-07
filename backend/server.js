@@ -419,7 +419,7 @@ io.on('connection', (socket) => {
 socket.on('private_message', async ({ senderId, receiverId, content }) => {
   try {
     // Persist
-    await Message.create({ sender: senderId, receiver: receiverId, content });
+    await Message.create({ senderId: senderId, receiverId: receiverId, content });
     // Emit to the receiver
     io.to(receiverId).emit('private_message', { senderId, content });
     // Ack back to sender
