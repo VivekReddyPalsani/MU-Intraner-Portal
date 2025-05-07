@@ -9,7 +9,7 @@ const User = require('./models/User');
 const Task = require('./models/Task');
 const Schedule = require('./models/Schedule');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.MONGO_URI;
 const SECRET_KEY = 'mu_secret_key_123'; // ✅ Move to .env in production
 const CourseRegistration = require('./models/CourseRegistration');
 const FeeInfo = require('./models/FeeInfo');
@@ -416,26 +416,20 @@ io.on('connection', (socket) => {
   });
 
 // server.js — inside io.on('connection', socket => { … })
-socket.on('private_message', async (msg) => {
+socket.on('private_message', async ({ senderId, receiverId, content }) => {
   try {
-    // 1. Persist to the database
-    await Message.create({
-      senderId:   msg.senderId,
-      receiverId: msg.receiverId,
-      content:    msg.content
-    });
-
-    // 2. Emit to the receiver’s room
-    io.to(msg.receiverId).emit('private_message', msg);
-
-    // 3. (Optional) Acknowledge delivery back to sender
-    socket.emit('message_sent', msg);
-
+    // Persist
+    await Message.create({ sender: senderId, receiver: receiverId, content });
+    // Emit to the receiver
+    io.to(receiverId).emit('private_message', { senderId, content });
+    // Ack back to sender
+    socket.emit('message_sent', { receiverId, content });
   } catch (err) {
-    console.error('❌ private_message error:', err);
+    console.error('Error saving or emitting message:', err);
     socket.emit('error_sending_message', { error: err.message });
   }
 });
+
 
 
 
