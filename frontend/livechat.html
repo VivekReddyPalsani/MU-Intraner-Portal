@@ -61,6 +61,7 @@
                 </div>
 
                 <!-- Chat Area -->
+                <!-- Chat Area -->
                 <div class="col-md-8 d-flex flex-column p-3">
                     <div class="bg-dark p-3 mb-3 rounded d-flex justify-content-between align-items-center">
                         <h6 class="mb-0 text-light chat-header-contact">Select contact</h6>
@@ -70,7 +71,16 @@
                             <a href="#" class="text-light"><i class="fas fa-ellipsis-v"></i></a>
                         </div>
                     </div>
-                    
+                    <div class="chat-messages flex-grow-1 p-3" style="overflow-y: auto; background: var(--dark);">
+                        <div class="message received mb-3 p-2 rounded" style="background: var(--secondary); max-width: 60%;">
+                            <p class="mb-0 text-light">Hey John, are you ready for the project discussion?</p>
+                            <small class="text-light">10:15 AM</small>
+                        </div>
+                        <div class="message sent mb-3 p-2 rounded" style="background: var(--primary); max-width: 60%; margin-left: auto;">
+                            <p class="mb-0 text-light">Yes, I’ll be there! Let’s meet at 11 AM.</p>
+                            <small class="text-light">10:16 AM</small>
+                        </div>
+                    </div>
                     <div class="chat-input p-3 border-top d-flex align-items-center">
                         <input type="text" class="form-control bg-dark border-0 me-2" placeholder="Type a message..." id="messageInput">
                         <button class="btn btn-primary">Send</button>
