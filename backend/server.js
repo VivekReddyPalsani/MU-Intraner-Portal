@@ -21,6 +21,11 @@ const Message = require('./models/Message');
 const multer = require('multer');
 const CourseMaterial = require('./models/CourseMaterial');
 const MeetingRequest = require("./models/MeetingRequest");
+// server.js
+const Message = require('./Message');
+const Message = require('./models/Message');
+
+
 
 // 🧠 Connect MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -412,10 +417,28 @@ io.on('connection', (socket) => {
     console.log(`User ${userId} joined their room`);
   });
 
-  socket.on('private_message', (msg) => {
-    // Emit the message to the correct recipient (receiverId is their room)
-    socket.to(msg.receiverId).emit('private_message', msg); // Send the message to the receiver's socket
+// server.js — inside io.on('connection', socket => { … })
+socket.on('private_message', async (msg) => {
+  try {
+    // 1. Persist to the database
+    await Message.create({
+      senderId:   msg.senderId,
+      receiverId: msg.receiverId,
+      content:    msg.content
+    });
+
+    // 2. Emit to the receiver’s room
+    io.to(msg.receiverId).emit('private_message', msg);
+
+    // 3. (Optional) Acknowledge delivery back to sender
+    socket.emit('message_sent', msg);
+
+  } catch (err) {
+    console.error('❌ private_message error:', err);
+    socket.emit('error_sending_message', { error: err.message });
+  }
 });
+
 
 
   socket.on('disconnect', () => {
