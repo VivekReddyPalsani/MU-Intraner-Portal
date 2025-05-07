@@ -169,10 +169,10 @@ app.delete('/api/tasks/:id', authenticate, async (req, res) => {
 
 // 🚀 Launch server
 const server = http.createServer(app);
-const io = require('socket.io')(server, {
-    cors: {
-        origin: '*',
-    }
+const io = socketIO(server, {
+  cors: {
+    origin: '*'
+  }
 });
 server.listen(PORT, () => {
   console.log(`🚀 Server running at https://mu-intraner-portal.onrender.com:${PORT}`);
@@ -389,6 +389,7 @@ app.post('/api/attendance/submit', authenticate, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 app.get('/api/messages/:user1/:user2', authenticate, async (req, res) => {
   const { user1, user2 } = req.params;
   try {
@@ -415,23 +416,17 @@ io.on('connection', (socket) => {
     console.log(`User ${userId} joined their room`);
   });
 
-// server.js — inside io.on('connection', socket => { … })
-socket.on('private_message', async ({ senderId, receiverId, content }) => {
-  try {
-    // Persist
-    await Message.create({ senderId: senderId, receiverId: receiverId, content });
-    // Emit to the receiver
-    io.to(receiverId).emit('private_message', { senderId, content });
-    // Ack back to sender
-    socket.emit('message_sent', { receiverId, content });
-  } catch (err) {
-    console.error('Error saving or emitting message:', err);
-    socket.emit('error_sending_message', { error: err.message });
-  }
-});
+  socket.on('private_message', async ({ senderId, receiverId, content }) => {
+    const newMsg = new Message({ senderId, receiverId, content });
+    await newMsg.save();
 
-
-
+    io.to(receiverId).emit('private_message', {
+      senderId,
+      receiverId,
+      content,
+      timestamp: new Date()
+    });
+  });
 
   socket.on('disconnect', () => {
     console.log('User disconnected');
