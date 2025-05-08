@@ -1,0 +1,58 @@
+[{
+  "_id": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "name": "Vignesh Anoop Naidu",
+  "email": "se22uari108@mahindrauniversity.edu.in",
+  "password": "$2b$10$xXKK2buJTtcuByKIqkTk9OsdMNOZSTMn8wD/oW7Vq376zkLgD4Pza",
+  "role": "student",
+  "__v": 0,
+  "studentInfo": {
+    "rollNumber": "SE22UARI108",
+    "branch": "AI",
+    "year": 3,
+    "section": "2"
+  }
+},
+{
+  "_id": {
+    "$oid": "6804d0d090095aae3ea513f5"
+  },
+  "name": "Avinash Arun Chauhan",
+  "email": "avinash.chauhan@mahindrauniversity.edu.in",
+  "password": "$2b$10$38c16UzYP7GUXGmi8lXEyOYnFpsDaAku3enfRLfGVIcr4sfomi05u",
+  "role": "faculty",
+  "__v": 0,
+  "classes": [
+    {
+      "branch": "CSE",
+      "year": 3,
+      "section": "1"
+    },
+    {
+      "branch": "AI",
+      "year": 3,
+      "section": "2"
+    }
+  ],
+  "facultyInfo": {
+    "department": "AI",
+    "designation": "Assistant Professor"
+  }
+},
+{
+  "_id": {
+    "$oid": "6811ac6439bf733190cb4943"
+  },
+  "name": "Peddi Varshika",
+  "email": "se22uari124@mahindrauniversity.edu.in",
+  "password": "$2b$10$jcrDX2hrJmnPj76kbuJWJeMR4eRwgjIykkR4tWVE/hVldnRecCAPK",
+  "role": "student",
+  "__v": 0,
+  "studentInfo": {
+    "rollNumber": "SE22UARI124",
+    "branch": "AI",
+    "year": 3,
+    "section": "2"
+  }
+}]

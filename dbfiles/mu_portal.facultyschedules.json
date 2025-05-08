@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "6815c28d88829a0e8205520d"
+  },
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "day": "Monday",
+  "entries": [
+    {
+      "time": "02:35 PM - 03:30 PM",
+      "subject": "Software Engineering",
+      "classroom": "ECSE - ELT 2 - GF",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6815c28d88829a0e8205520e"
+  },
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "day": "Tuesday",
+  "entries": [
+    {
+      "time": "04:35 PM - 05:30 PM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT 1 - GF",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6815c28d88829a0e8205520f"
+  },
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "day": "Wednesday",
+  "entries": [
+    {
+      "time": "10:35 AM - 12:35 AM",
+      "subject": "Software Engineering",
+      "classroom": "IT-1 Lab FF",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6815c28d88829a0e82055210"
+  },
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "day": "Thursday",
+  "entries": [
+    {
+      "time": "11:35 PM - 12:30 PM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT -1 - GF",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6815c28d88829a0e82055211"
+  },
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "day": "Friday",
+  "entries": [
+    {
+      "time": "11:35 AM - 12:30 AM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT 1 - GF",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+}]

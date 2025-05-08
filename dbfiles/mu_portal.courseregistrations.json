@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "680a34e9708b25bcbfda8b42"
+  },
+  "userId": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "courseName": "Introduction to Modern Cryptography",
+  "courseCode": "CS 2103",
+  "instructor": "Prof. Ravi Kishor",
+  "registeredAt": {
+    "$date": "2025-04-24T12:56:09.734Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681066f41a252c4f1906984e"
+  },
+  "userId": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "courseName": "Data Structures",
+  "courseCode": "CS 2103",
+  "instructor": "Prof. Avinash",
+  "registeredAt": {
+    "$date": "2025-04-29T05:43:16.254Z"
+  },
+  "__v": 0
+}]

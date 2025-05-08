@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "680a40308b9c456ef9572bfb"
+  },
+  "userId": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "rollNumber": "N/A",
+  "branch": "N/A",
+  "semester": 0,
+  "tuitionFee": 225000,
+  "hostelFee": 100000,
+  "transactions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6811a7481a252c4f19069a22"
+  },
+  "userId": {
+    "$oid": "6811a7331a252c4f19069a16"
+  },
+  "rollNumber": "N/A",
+  "branch": "N/A",
+  "semester": 0,
+  "tuitionFee": 225000,
+  "hostelFee": 100000,
+  "transactions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6811b41139bf733190cb494e"
+  },
+  "userId": {
+    "$oid": "6811ac6439bf733190cb4943"
+  },
+  "rollNumber": "N/A",
+  "branch": "N/A",
+  "semester": 0,
+  "tuitionFee": 225000,
+  "hostelFee": 100000,
+  "transactions": [],
+  "__v": 0
+}]

@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "68186d878dd4256c2e5f8a95"
+  },
+  "date": "2025-05-05",
+  "subject": "Software Engineering",
+  "time": "02:35 PM - 03:30 PM",
+  "classroom": "ECSE - ELT 2 - GF",
+  "branch": "AI",
+  "year": 3,
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "presentStudents": [
+    "SE22UARI108"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68186f281d05a50989360651"
+  },
+  "date": "2025-05-05",
+  "subject": "Software Engineering",
+  "time": "02:35 PM - 03:30 PM",
+  "classroom": "ECSE - ELT 2 - GF",
+  "branch": "AI",
+  "year": 3,
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "presentStudents": [
+    "SE22UARI108",
+    "SE22UARI124"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68186f2f1d05a50989360658"
+  },
+  "date": "2025-05-05",
+  "subject": "Software Engineering",
+  "time": "02:35 PM - 03:30 PM",
+  "classroom": "ECSE - ELT 2 - GF",
+  "branch": "AI",
+  "year": 3,
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "presentStudents": [
+    "SE22UARI108",
+    "SE22UARI124"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68186fcdb1520e53490af99a"
+  },
+  "date": "2025-05-05",
+  "subject": "Software Engineering",
+  "time": "02:35 PM - 03:30 PM",
+  "classroom": "ECSE - ELT 2 - GF",
+  "branch": "AI",
+  "year": 3,
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "presentStudents": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681870b008496f028495c32e"
+  },
+  "date": "2025-05-05",
+  "subject": "Software Engineering",
+  "time": "02:35 PM - 03:30 PM",
+  "classroom": "ECSE - ELT 2 - GF",
+  "branch": "AI",
+  "year": 3,
+  "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in",
+  "presentStudents": [
+    "SE22UARI108",
+    "SE22UARI124"
+  ],
+  "__v": 0
+}]

@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "6818d902420cd1497a0cedba"
+  },
+  "subjectCode": "CS3201",
+  "subjectName": "Software Engineering",
+  "facultyId": "6804d0d090095aae3ea513f5",
+  "facultyName": "Avinash Arun Chauhan",
+  "filename": "Docker Basics.pptx",
+  "filepath": "uploads\\1746458882570-802180087-Docker Basics.pptx",
+  "uploadDate": {
+    "$date": "2025-05-05T15:28:02.598Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6818de951011a2a55168b7d2"
+  },
+  "subjectCode": "CS3201",
+  "subjectName": "Software Engineering",
+  "facultyId": "6804d0d090095aae3ea513f5",
+  "facultyName": "Avinash Arun Chauhan",
+  "filename": "Full_SDS_Compiled.docx",
+  "filepath": "uploads\\1746460309230-169018530-Full_SDS_Compiled.docx",
+  "uploadDate": {
+    "$date": "2025-05-05T15:51:49.236Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6818df501011a2a55168b7d5"
+  },
+  "subjectCode": "CS3201",
+  "subjectName": "Software Engineering",
+  "facultyId": "6804d0d090095aae3ea513f5",
+  "facultyName": "Avinash Arun Chauhan",
+  "filename": "Project Software Design Specification.docx",
+  "filepath": "uploads\\1746460496547-858300042-Project Software Design Specification.docx",
+  "uploadDate": {
+    "$date": "2025-05-05T15:54:56.550Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6819b04efa3d11ec124dd838"
+  },
+  "subjectCode": "CS3201",
+  "subjectName": "Software Engineering",
+  "facultyId": "6804d0d090095aae3ea513f5",
+  "facultyName": "Avinash Arun Chauhan",
+  "filename": "1746458882570-802180087-Docker Basics.pptx",
+  "filepath": "uploads\\1746513998796-689123174-1746458882570-802180087-Docker Basics.pptx",
+  "uploadDate": {
+    "$date": "2025-05-06T06:46:38.831Z"
+  },
+  "__v": 0
+}]

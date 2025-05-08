@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "681a1687f164aa20a1ce7cb4"
+  },
+  "userId": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "text": "assignment",
+  "completed": false,
+  "createdAt": {
+    "$date": "2025-05-06T14:02:47.732Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "681a168df164aa20a1ce7cb7"
+  },
+  "userId": {
+    "$oid": "67f2e635e2edf7a1a23306ca"
+  },
+  "text": "RS paper",
+  "completed": false,
+  "createdAt": {
+    "$date": "2025-05-06T14:02:53.075Z"
+  },
+  "__v": 0
+}]

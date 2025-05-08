@@ -1,0 +1,232 @@
+[{
+  "_id": {
+    "$oid": "680a1763d7bbe35a68fa5136"
+  },
+  "day": "Monday",
+  "entries": [
+    {
+      "time": "10:35 AM - 12:30 PM",
+      "subject": "Introduction to Professional Development",
+      "classroom": "ECSE - ECR 13 - FF",
+      "facultyName": "Dr. Pankaj Narke",
+      "facultyEmail": "pankaj@mu.edu"
+    },
+    {
+      "time": "01:35 PM - 02:30 PM",
+      "subject": "Deep Neural Networks",
+      "classroom": "ECSE - ELT 2 - GF",
+      "facultyName": "Dr. DIPTI MISHRA",
+      "facultyEmail": "dipti@mu.edu"
+    },
+    {
+      "time": "02:35 PM - 03:30 PM",
+      "subject": "Software Engineering",
+      "classroom": "ECSE - ELT 2 - GF",
+      "facultyName": "Mr. Arun Avinash Chauhan",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    },
+    {
+      "time": "04:35 PM - 05:30 PM",
+      "subject": "Recommender Systems",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Arunkumar Pujari, Mrs. Sowmini Devi Veeramachaneni",
+      "facultyEmail": "arun@mu.edu"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "680a1763d7bbe35a68fa5137"
+  },
+  "day": "Tuesday",
+  "entries": [
+    {
+      "time": "08:25 AM - 10:20 AM",
+      "subject": "Programming Workshop",
+      "classroom": "IT-1 Lab FF",
+      "facultyName": "Mrs. Sowmini Devi Veeramachaneni, Mr. Murali Krishna",
+      "facultyEmail": "sowmini@mu.edu"
+    },
+    {
+      "time": "01:35 PM - 02:30 PM",
+      "subject": "Deep Neural Networks",
+      "classroom": "ECSE - ELT 2 - GF",
+      "facultyName": "Dr. DIPTI MISHRA",
+      "facultyEmail": "dipti@mu.edu"
+    },
+    {
+      "time": "02:35 PM - 03:30 PM",
+      "subject": "Software Engineering",
+      "classroom": "ECSE - ELT 2 - GF",
+      "facultyName": "Mr. Arun Avinash Chauhan",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    },
+    {
+      "time": "04:35 PM - 05:30 PM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Dr. Ravi Kishore Vasala",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "680a1763d7bbe35a68fa5138"
+  },
+  "day": "Wednesday",
+  "entries": [
+    {
+      "time": "10:35 AM - 12:30 PM",
+      "subject": "Software Engineering",
+      "classroom": "IT-1 Lab FF",
+      "facultyName": "Mr. Arun Avinash Chauhan",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "680a1763d7bbe35a68fa5139"
+  },
+  "day": "Thursday",
+  "entries": [
+    {
+      "time": "09:25 AM - 10:20 AM",
+      "subject": "Personal Sustainability",
+      "classroom": "ECSE - ECR 9 - FF",
+      "facultyName": "Dr. Anirban Ghosh, Prof. Salome Benhur",
+      "facultyEmail": "anirban@mu.edu"
+    },
+    {
+      "time": "10:35 AM - 11:30 AM",
+      "subject": "Recommender Systems",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Arunkumar Pujari, Mrs. Sowmini Devi Veeramachaneni",
+      "facultyEmail": "arun@mu.edu"
+    },
+    {
+      "time": "11:35 AM - 12:30 PM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Dr. Ravi Kishore Vasala",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    },
+    {
+      "time": "01:35 PM - 02:30 PM",
+      "subject": "Deep Neural Networks",
+      "classroom": "ECSE - ELT 2 - GF",
+      "facultyName": "Dr. DIPTI MISHRA",
+      "facultyEmail": "dipti@mu.edu"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "680a1763d7bbe35a68fa513a"
+  },
+  "day": "Friday",
+  "entries": [
+    {
+      "time": "10:35 AM - 11:30 AM",
+      "subject": "Recommender Systems",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Arunkumar Pujari, Mrs. Sowmini Devi Veeramachaneni",
+      "facultyEmail": "arun@mu.edu"
+    },
+    {
+      "time": "11:35 AM - 12:30 PM",
+      "subject": "Introduction to Modern Cryptography",
+      "classroom": "ECSE - ELT 1 - GF",
+      "facultyName": "Dr. Ravi Kishore Vasala",
+      "facultyEmail": "avinash.chauhan@mahindrauniversity.edu.in"
+    },
+    {
+      "time": "02:35 PM - 03:30 PM",
+      "subject": "Personal Sustainability",
+      "classroom": "ECSE - ECR 9 - FF",
+      "facultyName": "Dr. Anirban Ghosh, Prof. Salome Benhur",
+      "facultyEmail": "anirban@mu.edu"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6811b5b36069e3a9752c1997"
+  },
+  "day": "Monday",
+  "entries": [
+    {
+      "startTime": "10:35 AM",
+      "endTime": "11:30 AM",
+      "subject": "Software Engineering",
+      "classroom": "ELT-2",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6811b5b36069e3a9752c1998"
+  },
+  "day": "Tuesday",
+  "entries": [
+    {
+      "startTime": "2:35 PM",
+      "endTime": "3:30 PM",
+      "subject": "Recommender System",
+      "classroom": "ELT-1",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6811b5b36069e3a9752c1999"
+  },
+  "day": "Wednesday",
+  "entries": [
+    {
+      "startTime": "1:35 PM",
+      "endTime": "2:30 PM",
+      "subject": "Software Engineering",
+      "classroom": "ELT-2",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6811b5b36069e3a9752c199a"
+  },
+  "day": "Thursday",
+  "entries": [
+    {
+      "startTime": "11:35 AM",
+      "endTime": "12:30 PM",
+      "subject": "Recommender System",
+      "classroom": "ELT-1",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6811b5b36069e3a9752c199b"
+  },
+  "day": "Friday",
+  "entries": [
+    {
+      "startTime": "9:25 AM",
+      "endTime": "10:20 AM",
+      "subject": "Software Engineering",
+      "classroom": "ELT-2",
+      "branch": "AI",
+      "year": 3
+    }
+  ]
+}]

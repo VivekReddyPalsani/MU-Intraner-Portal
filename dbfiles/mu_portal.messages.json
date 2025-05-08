@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "6818ac7caa7bf414749c5810"
+  },
+  "senderId": "6804d0d090095aae3ea513f5",
+  "receiverId": "67f2e635e2edf7a1a23306ca",
+  "content": "hello",
+  "timestamp": {
+    "$date": "2025-05-05T12:18:04.503Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6818acabaa7bf414749c581f"
+  },
+  "senderId": "67f2e635e2edf7a1a23306ca",
+  "receiverId": "6804d0d090095aae3ea513f5",
+  "content": "hi sir",
+  "timestamp": {
+    "$date": "2025-05-05T12:18:51.279Z"
+  },
+  "__v": 0
+}]
